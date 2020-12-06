@@ -1,0 +1,15 @@
+Part 1:
+For part 1, I knew I needed to iterate through each level of the mountain,
+    checking every 3 spots for a "#" which indicated a tree
+
+I attained this by setting a trees hit variable and a right travel variable
+
+Each iteration, I would check if the right travel variable was over 30, 
+    since each level was originally 31 characters long, which meant the last
+    index would always be 30.
+If it was, I would subtract a whole line from the variable, that is, 31. To replicate
+    the strings replicating into infinity.
+Next, I would check if the character at the index location was a "#",
+    and if it was, I would increase the count variable by 1
+
+This way, I returned a count of 193, which was correct.
