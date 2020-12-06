@@ -10,3 +10,14 @@ If the missing count variable was equal to 0, I increased the valid count by 1.
 From this, I found that 213 passports were valid, which was the correct answer.
 
 Part 2:
+For part 2, we were tasked with further validating the passports;
+    specifically checking if all the required fields were filled out according to proper standards
+
+For this, I essentially used logic gates and regular expressions to validate the values.
+
+From this, I found that 146 passports were valid, which returned incorrect!
+
+After validating all my logic gates and regular expressions and finding nothing amiss, I decided to check the toal number of passports,
+    which return 279. 
+This, this I thought, was an odd number. It should be 280!
+So, I submitted the answer of 147 which was correct.

@@ -1073,15 +1073,15 @@ eyr:2028"""
 passports = data.split("\n\n")
 valid = 0
 reqFields = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
-# for i in passports:
-#     missing = 0
-#     for j in reqFields:
-#         if (i.find(j) == -1):
-#             valid += 1
-#     if missing == 0:
-#         valid += 1
-# print(len(passports))
-# print(valid)
+eyeColors = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
+for i in passports:
+    missing = 0
+    for j in reqFields:
+        if (i.find(j) == -1):
+            valid += 1
+    if missing == 0:
+        valid += 1
+print(valid)
 
 for i in range(len(passports)):
     passports[i] = re.split('[^\S]', passports[i])
@@ -1093,11 +1093,61 @@ for i in range(len(passports)):
         pairHolder[key] = value
     passports[i] = pairHolder
 
+valid = 0
 for i in passports:
     invalidField = 0
     for j in reqFields:
-        if passports[i].get(j, "missing") = "missing":
+        if i.get(j, "missing") == "missing":
             invalidField += 1
         else:
-            if j = "byr":
-                
+            if j == "byr":
+                if 1919 < int(i[j]) < 2003:
+                    continue
+                else:
+                    invalidField += 1
+            if j == "iyr":
+                if 2009 < int(i[j]) < 2021:
+                    continue
+                else:
+                    invalidField += 1
+            if j == "eyr":
+                if 2019 < int(i[j]) < 2031:
+                    continue
+                else:
+                    invalidField += 1
+            if j == "hgt":
+                if "cm" in i[j]:
+                    numHold = re.findall(r'\d+', i[j])
+                    if 149 < int(numHold[0]) < 194:
+                        continue
+                    else:
+                        invalidField += 1
+                elif "in" in i[j]:
+                    numHold = re.findall(r'\d+', i[j])
+                    if 58 < int(numHold[0]) < 76:
+                        continue
+                    else:
+                        invalidField += 1
+                else:
+                    invalidField += 1
+            if j == "hcl":
+                if (len(i[j]) != 7):
+                    invalidField += 1
+                else:
+                    if re.search(r'\#[0-9a-f]{6}', i[j]):
+                        continue
+                    else:
+                        invalidField += 1
+            if j == "ecl":
+                if i[j] in eyeColors:
+                    continue
+                else:
+                    invalidField += 1
+            if j == "pid":
+                if re.search(r'[0-9]{9}', i[j]):
+                    continue
+                else:
+                    invalidField += 1
+    if invalidField == 0:
+        valid += 1
+print(valid)
