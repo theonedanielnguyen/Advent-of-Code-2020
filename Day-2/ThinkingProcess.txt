@@ -1,0 +1,22 @@
+Part 1:
+
+For part one, the requests were:
+    1. Find all passwords that are valid according to the following:
+        Strings written as: num-num char: string;
+        Where the numbers indicate a range that the character must appear in the string that many times.
+    2. Return the total valid password strings.
+
+For this, I knew all I had to do was to break down the strings into their individual parts to work
+
+Because all of the strings were formatted in the same way, I was able to split them easily.
+
+Then, using a for loop, I iterated through the separated strings and :
+    Set the two numbers to the min amount and max amount
+    Set the character to be searched for
+    Iterated through the string for matches and increasing a count variable with every match
+    And finally, checked if the count variable was within the stated bounds
+    If the count was within bounds, I increased an external count variable
+
+From this, I returned the value of 607, which was the correct answer
+
+Part 2
