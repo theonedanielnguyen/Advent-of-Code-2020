@@ -13,3 +13,19 @@ Next, I would check if the character at the index location was a "#",
     and if it was, I would increase the count variable by 1
 
 This way, I returned a count of 193, which was correct.
+
+Part 2:
+For part 2, all that was added into the mix was varying "slopes". 
+Then, return the product of all the trees hit for the varying slopes.
+
+The easy parts were the slopes where down was still 1, where all I needed to do
+    was to change the right increment.
+
+The only only one that required a bit more manipulation was where the down increment was 2
+For this, I modified the for loop statement to iterate through a range that would
+    increment by two.
+Then I modified the if statement to use mountain[i] rather than just i.
+
+Finally, I stored each of the trees hit for each of the slopes and multipled them together.
+
+This way, I returned a product of 1355323200, which was correct.

@@ -323,7 +323,23 @@ data = """.#..............##....#.#.####.
 .....#...#.###...#..#........#."""
 
 mountain = data.split("\n")
+# Right 1, Down 1
+treesHit = 0
+rightTravel = 0
 
+for i in mountain:
+    if rightTravel > 30:
+        rightTravel -= 31
+    if i[rightTravel] == "#":
+        treesHit += 1
+        rightTravel += 1
+    else:
+        rightTravel += 1
+
+r1d1 = treesHit
+print(treesHit)
+
+# Right 3, Down 1
 treesHit = 0
 rightTravel = 0
 
@@ -336,4 +352,54 @@ for i in mountain:
     else:
         rightTravel += 3
 
+r3d1 = treesHit
 print(treesHit)
+
+#Right 5, Down 1
+treesHit = 0
+rightTravel = 0
+
+for i in mountain:
+    if rightTravel > 30:
+        rightTravel -= 31
+    if i[rightTravel] == "#":
+        treesHit += 1
+        rightTravel += 5
+    else:
+        rightTravel += 5
+
+r5d1 = treesHit
+print(treesHit)
+
+# Right 7, Down 1
+treesHit = 0
+rightTravel = 0
+
+for i in mountain:
+    if rightTravel > 30:
+        rightTravel -= 31
+    if i[rightTravel] == "#":
+        treesHit += 1
+        rightTravel += 7
+    else:
+        rightTravel += 7
+
+r7d1 = treesHit
+print(treesHit)
+
+# Right 1, Down 2
+treesHit = 0
+rightTravel = 0
+
+for i in range(0,len(mountain)-1,2):
+    if rightTravel > 30:
+        rightTravel -= 31
+    if mountain[i][rightTravel] == "#":
+        treesHit += 1
+        rightTravel += 1
+    else:
+        rightTravel += 1
+
+r1d2 = treesHit
+print(treesHit)
+print(r1d1*r1d2*r3d1*r5d1*r7d1)
