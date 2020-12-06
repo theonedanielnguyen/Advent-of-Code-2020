@@ -998,7 +998,7 @@ data = """1-4 m: mrfmmbjxr
 7-8 r: rrrrxrrr
 8-9 f: sgdcqfhfcfsflb
 3-7 g: gdgtnfggq"""
-
+# Part 1
 work = data.split("\n")
 totalValid = 0
 for i in work:
@@ -1012,6 +1012,24 @@ for i in work:
         if focus == i:
             totalFocus += 1
     if (totalFocus >= firstNum and totalFocus <= secondNum):
+        totalValid += 1
+
+print(totalValid)
+
+# Part 2
+totalValid = 0
+for i in work:
+    working = i.split(" ")
+    numStrings = working[0].split("-")
+    firstNum = int(numStrings[0])-1
+    secondNum = int(numStrings[1])-1
+    focus = working[1][:1]
+    password = working[2]
+    if (password[firstNum] != focus and password[secondNum] != focus):
+        continue
+    elif (password[firstNum] == focus and password[secondNum] == focus):
+        continue
+    else:
         totalValid += 1
 
 print(totalValid)

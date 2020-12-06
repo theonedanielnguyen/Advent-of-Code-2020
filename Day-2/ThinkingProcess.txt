@@ -20,3 +20,15 @@ Then, using a for loop, I iterated through the separated strings and :
 From this, I returned the value of 607, which was the correct answer
 
 Part 2
+For part 2, the main difference was that the two numbers indicated two indices rather than a range.
+
+So, all I needed to do was to use the same code as part one, but instead of iterating through the string for matches,
+I just tested to see if the characters at each index location matched the focus character.
+The index numbers were decreased by one since the system index was said to start at 1 rather than 0.
+
+I had three conditions of:
+    Neither equal,
+    Both equal, and
+    Only one equal, in which I increased the valid count by one
+
+From this, I returned the value of 321, which was correct.
