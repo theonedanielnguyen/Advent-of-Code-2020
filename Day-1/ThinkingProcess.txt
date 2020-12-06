@@ -1,0 +1,53 @@
+Part 1:
+
+For part one, the requests were:
+	1. Find two numbers that add up to 2020.
+	2. Return the product of the two numbers.
+
+	From this, I knew that my thinking had to focus on the idea of:
+		num1 + num2 = 2020
+
+	Now, how would I go about this?
+
+	Well, the easiest thing to do would be to find the largest and the smallest, and add them together and slowly move inwards.
+	Knowing this, I knew that I needed to sort the numbers.
+	Once I sorted the numbers, I could begin with the actual code.
+
+	First off, I had to convert the data into readable code.
+	Copy and pasting showed that I would get roughly 200 lines of snigle numbers.
+	Because python allows multiple line variables, I chose to work within it.
+	I put block quotes around the numbers and split the new variable on "\n" creating my array of numbers.
+	Because split returned an array of strings, I converted them all to integers.
+
+	I chose to keep track of the indices, as it would be easier to reference later.
+	I set the first number to 0, the first index, and the second to the length of the array I created minus 1, the last index.
+	Now, I could create a while loop that had three if statements within:
+		The first, to check if I had already met the target number;
+		The second, to check if I had not hit the target number;
+		And the last, to check if I had overshot the target number;
+
+	If I had not hit the target number, I would increase the front index by 1.
+	If I had overshot the target number, I would decrease the end index by 1.
+	If I had hit the target, I would break the while loop and return my two numbers and their product.
+
+	My final results were:
+		front = 936
+		end = 1084
+		product = 1014624
+	Which was the correct answer.
+
+For part 2, the requests were:
+	1. Find the 3 numbers that add up to 2020.
+	2. Return the product of the two numbers.
+
+	From this, I knew that the solution would be similar to part 1.
+
+	I ended up using the same code, but this time, nesting it within a for loop that would increment the first number.
+	The nested while loop I used before would be used for the second two numbers.
+	I couldn't quite figure out how to break out of both the while and for loops cleanly at the point where the target was hit,
+	so I ended up simply printing out the three numbers and the total the moment the target was hit.
+
+	My final results were:
+		numbers = 93 704 1223
+		product = 80072256
+	Which was the correct number.

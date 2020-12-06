@@ -201,8 +201,9 @@ input = """1150
 
 numArray = (input.split("\n"))
 numArray.sort(key=int)
-
 intArray = [int(x) for x in numArray]
+
+# Testing Part 1
 target = 2020
 front = 0
 end = len(intArray) -1
@@ -216,3 +217,20 @@ while front<end:
         end -= 1
 
 print(intArray[front], intArray[end], intArray[front]*intArray[end])
+
+# Testing Part 2
+num1 = 0
+num2 = 1
+num3 = 2
+for i in range(len(intArray)-3):
+    num1 = i
+    num2 = i + 1
+    num3 = len(intArray)-1
+    while num2<num3:
+        if intArray[i]+intArray[num2]+intArray[num3] == target:
+            print(intArray[num1], intArray[num2], intArray[num3], intArray[num1]*intArray[num2]*intArray[num3])
+            break
+        elif intArray[i]+intArray[num2]+intArray[num3] < target:
+            num2 += 1
+        elif intArray[i]+intArray[num2]+intArray[num3] > target:
+            num3 -= 1
