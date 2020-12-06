@@ -1,0 +1,12 @@
+Part 1:
+For part 1, we were tasked to find the amount of valid passports;
+    valid passports being those with all the required fields
+
+To solve this, I created an array that contained the names of all the required fields.
+Then I searched each of the passport strings for each of the names.
+If a field was not found, I increased the missing count variable.
+If the missing count variable was equal to 0, I increased the valid count by 1.
+
+From this, I found that 213 passports were valid, which was the correct answer.
+
+Part 2:
