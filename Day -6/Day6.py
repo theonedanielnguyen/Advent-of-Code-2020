@@ -2237,8 +2237,22 @@ fcelpwgamhnquzbsrtdxivjk
 tdjwzsaqhxunkfcvpbrmgil"""
 
 groups = data.split("\n\n")
+# sum = 0
+# for i in range(len(groups)):
+#     groups[i] = set("".join(groups[i].split("\n")))
+#     sum += len(groups[i])
+# print(sum)
 sum = 0
 for i in range(len(groups)):
-    groups[i] = set("".join(groups[i].split("\n")))
-    sum += len(groups[i])
+    groups[i] = groups[i].split("\n")
+    workingSet = set(groups[i][0])
+    removal = []
+    for i in groups[i]:
+        for j in workingSet:
+            if j not in i:
+                removal.append(j)
+    removeSet = set(removal)
+    for i in removeSet:
+        workingSet.remove(i)
+    sum += len(workingSet)
 print(sum)

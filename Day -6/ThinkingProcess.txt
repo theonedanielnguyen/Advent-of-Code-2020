@@ -10,4 +10,21 @@ Part 1:
     
     Then, I summed the length of each of those sets into the final sum.
 
-    From this I returned a sum of 6930, which was the correct answer.
+    From this, I returned a sum of 6930, which was the correct answer.
+
+Part 2:
+    For part two, we were tasked with finding the the total sum of the joined
+        counts of yes.
+
+    To solve this, I believed that using a set would still be the right way to go.
+
+    I created a set out of the first string of yes answers in a group.
+
+    Then, I iterated through all the member strings in a group and would iterate
+        through the original set to check if each value was present.
+    
+    If the value was not present in a string, I removed the value from the set.
+
+    At the end, I added the sum of all the set lengths together to get the final sum.
+
+    From this, I returned a sum of 3585, which was the correct answer.
