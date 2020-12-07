@@ -1,0 +1,13 @@
+Part 1:
+    For part one, we were tasked with finding the total sum of counts of yes
+        to an array of questions that each group answered.
+
+    To solve this, I realized that using a set would be the easiest way.
+
+    So, I combined all strings of yes answers in a group into one string, then,
+        because it is iterable, I converted the string into a set, which only
+        allows for each value to only appear once.
+    
+    Then, I summed the length of each of those sets into the final sum.
+
+    From this I returned a sum of 6930, which was the correct answer.
