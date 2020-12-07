@@ -834,4 +834,9 @@ for i in tickets:
             if i[j] == "L":
                 colNum[1] -= ((colNum[1] - colNum[0] + 1)/2)
     seatIDs.append((row*8)+col)
-print(seatIDs)
+print(max(seatIDs))
+seatIDs.sort()
+for i in range(len(seatIDs)):
+    if seatIDs[i] != seatIDs[i+1]-1:
+        print(seatIDs[i]+1)
+        break

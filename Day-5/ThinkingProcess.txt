@@ -19,3 +19,15 @@ Part 1:
     I pushed the final seat numbers into a separate array and returned the max.
 
     Using this method, I found that the max was 890, which was the correct answer.
+
+Part 2:
+    For part 2, we were tasked with finding our seat number, which was much easier to do.
+    The key would be: our seat would be the missing number from our list.
+
+    Knowing this, I simply sorted the list of seat numbers and iterated through, checking if each number
+        was equal to the next number minus 1.
+
+    When turning point would be when they were not equal, at which point I would return the first number
+        plus 1.
+
+    Using this method, I found out that my seat number was 651, which was the correct answer.
