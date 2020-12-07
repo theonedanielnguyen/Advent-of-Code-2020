@@ -1,0 +1,21 @@
+Part 1:
+    For part 1, we were tasked with finding the highest possible seat number,
+        created by multiplying the row number by 8 and adding the column number.
+
+    However, all we were given were a string of characters that indicated a front or back half.
+
+    The puzzle statement explains it better, and I don't want to go too far into depth here...
+
+    My first thought was to actually hard code in the divisions, until I realized that that would mean
+        that I would have to write hundreds of lines of code and realized that there had to
+        be another, better way.
+
+    So I went back and figured out that I could simply assign each ticket code two arrays,
+        one that indicated the row, and one that indicated the column.
+
+    Iterating though and dividing and shifting numbers inwards, I would eventually come upon the final
+        numbers for the rows and the columns.
+
+    I pushed the final seat numbers into a separate array and returned the max.
+
+    Using this method, I found that the max was 890, which was the correct answer.
