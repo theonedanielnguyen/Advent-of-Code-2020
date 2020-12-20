@@ -603,12 +603,19 @@ for i in range(len(conditions)):
     conditions[i] = conditions[i].split(" contain ")
     dataSet[conditions[i][0]] = conditions[i][1].split(", ")
 shinyGold = {"shiny gold"}
+foundGold = {"shiny gold"}
 newAdditions = 0
-while newAdditions>0:
+repeat = 1
+while (repeat == 1):
+    addup = 0
     for key in dataSet.keys():
         for i in shinyGold:
             if i in dataSet[key]:
                 if key not in shinyGold:
                     newAdditions += 1
-                    shinyGold.add(key)
-print(len(shinyGold))
+                    addup += 1
+                    foundGold.add(key)
+    shinyGold = foundGold
+    if (addup == 0):
+        repeat = 0
+print(len(foundGold))
