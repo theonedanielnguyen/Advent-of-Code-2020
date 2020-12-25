@@ -1,0 +1,11 @@
+Part 1:
+    So for this, I knew I had to essentially search through all the sets of bags each bag contained, along with any potential bags they contained. This meant... a recursive function.
+    What I did was to first separate the data into key:contains sets. This would allow me to search according to what each bag contained.
+    Next, I iterated through the dataSet, while checking the contains against a list of the bags that could contain the target bag somewhere within them.
+    If there was a match, and the key was not already in the set of potential containers, I added to a count and added the key to the set of containers. 
+    If the count was greater than one, I would recall the function, else, I would return the length of the sets.
+    This way, I reached the answer of 186, which was wrong. After mulling it over, I checked advice and tips on the subreddit and came up with a different method.
+
+    The second method was very similar. For the second method, I created a set to hold all the potential containers.
+    Then, I iterated through the data set keys, and if the target bag was in the keys contains data, I added the key to the final set, and called the function on the key.
+    This method returned the answer of 185, which was correct. I believe the issue was that in the first function, I populated the final set with the initial target, which increased the final count by one.

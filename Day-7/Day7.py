@@ -1,4 +1,5 @@
 import re
+import copy
 data = """clear purple bags contain 5 faded indigo bags, 3 muted purple bags.
 bright teal bags contain 4 striped plum bags.
 dim fuchsia bags contain 2 vibrant tomato bags, 2 dotted purple bags, 2 plaid indigo bags.
@@ -606,16 +607,42 @@ shinyGold = {"shiny gold"}
 foundGold = {"shiny gold"}
 newAdditions = 0
 repeat = 1
-while (repeat == 1):
+# while (repeat == 1):
+#     addup = 0
+#     for key in dataSet.keys():
+#         for i in shinyGold:
+#             if i in dataSet[key]:
+#                 if key not in shinyGold:
+#                     newAdditions += 1
+#                     addup += 1
+#                     foundGold.add(key)
+#     shinyGold = foundGold
+#     if (addup == 0):
+#         repeat = 0
+
+def datacheck(dataSet, shinyGold, foundGold):
     addup = 0
     for key in dataSet.keys():
         for i in shinyGold:
             if i in dataSet[key]:
                 if key not in shinyGold:
-                    newAdditions += 1
+                    # newAdditions += 1
                     addup += 1
                     foundGold.add(key)
-    shinyGold = foundGold
+    shinyGold = copy.deepcopy(foundGold)
     if (addup == 0):
-        repeat = 0
-print(len(foundGold))
+        print(len(set(foundGold)))
+    else:
+        datacheck(dataSet, shinyGold, foundGold)
+
+datacheck(dataSet, shinyGold, foundGold)
+
+def contains(target):
+    for i in dataSet:
+        if target in dataSet[i]:
+            contains(i)
+            finalBags.add(i)
+
+finalBags = set()
+contains("shiny gold")
+print(len(finalBags))
