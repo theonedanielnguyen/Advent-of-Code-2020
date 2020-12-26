@@ -9,3 +9,12 @@ Part 1:
     The second method was very similar. For the second method, I created a set to hold all the potential containers.
     Then, I iterated through the data set keys, and if the target bag was in the keys contains data, I added the key to the final set, and called the function on the key.
     This method returned the answer of 185, which was correct. I believe the issue was that in the first function, I populated the final set with the initial target, which increased the final count by one.
+
+Part 2
+    For part 2, we were tasked with finding the maximum number of bags which could be held inside of a "shiny gold". For this, I went back to my data, and split off a branch that still included the numbers. 
+    For this problem, I knew that I needed to somehow keep track of each type of bag along with the count. So, I declared a set which would hold the color and count pairs.
+    Next, I considered how to write the program, knowing that what I wanted to do was to: count the bags inside the "shiny gold" bag, and then count the bags inside of those bags, and so on, until all bags terminated. So, the first part was declaring that the function would end when the contents were "no other" bags.
+    So, the first part of the actual solving was to pull the list of bags contained by calling the key. For ease of use, I set the list equal to a variable.
+    Then, I said to iterate through the contents of the bag, splitting the bag values into their count and color. Then, if the color did not already exist in my counter list, I would add it, and if it already existed, I would increment the count. 
+    The final step of the function was to recursively call the function for each of the colors in the contents the same amount of times as their respective count. This would give me a proper count. 
+    This method returned a number of 89084 which was the correct answer.

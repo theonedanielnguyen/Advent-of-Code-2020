@@ -620,6 +620,7 @@ repeat = 1
 #     if (addup == 0):
 #         repeat = 0
 
+#Try 1
 def datacheck(dataSet, shinyGold, foundGold):
     addup = 0
     for key in dataSet.keys():
@@ -637,6 +638,7 @@ def datacheck(dataSet, shinyGold, foundGold):
 
 datacheck(dataSet, shinyGold, foundGold)
 
+#Try 2
 def contains(target):
     for i in dataSet:
         if target in dataSet[i]:
@@ -646,3 +648,29 @@ def contains(target):
 finalBags = set()
 contains("shiny gold")
 print(len(finalBags))
+
+# Part 2
+newConditions = cutOut3.split("\n")
+newDataSet = {}
+for i in range(len(conditions)):
+    newConditions[i] = newConditions[i].split(" contain ")
+    newDataSet[newConditions[i][0]] = newConditions[i][1].split(", ")
+
+def countContained(parent):
+    contents = newDataSet[parent]
+    if contents[0] == "no other":
+        return
+    else:
+        for i in contents:
+            count = int(i[0])
+            color = i[2:]
+            if color  in color_counter:
+                color_counter[color] += count
+            else:
+                color_counter[color] = count
+            for j in range(count):
+                countContained(color)
+
+color_counter = {}
+countContained("shiny gold")
+print(sum(color_counter.values()))
