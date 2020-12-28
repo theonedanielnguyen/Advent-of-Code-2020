@@ -1,0 +1,10 @@
+Part 1:
+    In order to deal with this problem, I first split each of the lines of code into their directive("acc", "nop", "jmp") and the mathematical amount(+/-xxx).
+    Approaching this problem, I knew that there were at least three things I needed to keep track of: an accumulator, or the number I would need to return; a runner, which would let me keep track of which line of code was "running"; and a tracker which would keep track of all the lines that the program has already run, since the break point should be before any line runs a second time.
+    I knew this should be a recursive function, and so I set the break condition first. That if, at any point, the value of the runner was already in the tracker, the function should simply print out the present value of the accumulator.
+    Next, I set the if statement for when the action was "nop", which was a simple skip to the next step. I also set the else function that would determine what would happen if it were "acc" or "jmp". To make the work easier, I set two variables: one equal to the mathematical operator and one equal to the the number.
+    Then, using if statements, I set programming for either "acc" or "jmp". If it were "acc", I set it to set the accumulator to the eval of the accumulator + operator + number. And if it were "jmp", I set it to set the runner to the eval of the runner + operator + number.
+    Unfortunately, I continuously would get an "unexpected EOF when parsing" error on my eval functions. So, I gave up and went the hardcode route.
+    The second fucntion is essentially the same as the first, except now, there are if else functions to determine if the operator was either "+" or "-", and the function would then either add or subtract from the accumulator and runner respectively.
+    Using this second function, I got a value of 1394, which was correct.
+Part 2:
