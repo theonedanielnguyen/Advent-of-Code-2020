@@ -1,0 +1,11 @@
+Part 1:
+    For part 1, since we had to check if a number was the sum of any of the previous 25 numbers, I brought back our old friend from Day 1. Slightly modified of course.
+    I changed the function to take the target number and a list of the previous 25 numbers. Then, I changed the first if statement to return True if there was a match found, otherwise, return false if all possible pairs were compared and no match was found.
+    Finally, I iterated through the complete set of numbers, starting at index 25, each time running the function. As long as the function continued to return true, the iteration would continue. 
+    Using these methods, I returned the value of 88311122 at index 563 being the first number that was not a sum of any two of the previous 25 numbers. Which was the correct answer.
+
+Part 2:
+    For Part 2, I needed to use a similar method to part 1, however, in this case, I used it to find out the range of consecutive numbers that added up to my target.
+    My function would traverse the list and compare the sum of the range to the target value. If it was lower than the target, the end index would increase. If it was lower than the target, the start index would increase.
+    At the end, I took the final slice from the data set that summed up to the target number, and returned the sum of the min and max.
+    With this method, I returned a value of 13549369, which was the correct answer.
