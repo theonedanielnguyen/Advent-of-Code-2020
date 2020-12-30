@@ -8,3 +8,9 @@ Part 1:
     The second fucntion is essentially the same as the first, except now, there are if else functions to determine if the operator was either "+" or "-", and the function would then either add or subtract from the accumulator and runner respectively.
     Using this second function, I got a value of 1394, which was correct.
 Part 2:
+    Part two required quite a bit more work as we had to fix the one line of code out of 600 that was throwing errors. And admittedly, I hit quite a few stack overflows before I solved it.
+    To solve it, I decided that I needed to go through the lines of code, only switching the "nop" and "jmp" when I ran into them, skipping over the "acc". From this, I knew I needed to rework the recursive function from part 1 in order to test.
+    Instead of returning the "acc" when the runner was found in my index tracker, I had it return false, to show that the switch was not correct. Then, I added an if at the beginning that would catch the final step, that is, line 600, and return the "acc" at that time. The program would need to have run through all the lines of code to get to that point, which would have meant the program was fixed.
+    Then, I started writing the function to iterate through the program. If the function read that the program was running "acc" it would skip working on that line. If it ran into "nop" or "jmp", it would switch it to the other and then run the program to test.
+    If the test program returned false, the function would then switch the "nop" or "jmp" back and then continue testing lines. 
+    Using this method, I returned a value of 761, which was the correct answer.

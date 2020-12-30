@@ -26,29 +26,74 @@ acc = 0
 #                 runner = eval(str(runner)+math+count)
 #     return game(runner, acc, indexTracker)
 
+# def game(runner, acc, indexTracker):
+#     if runner in indexTracker:
+#         print(acc)
+#         return
+#     else:
+#         indexTracker.append(runner)
+#         if (dataSet[runner][0] == "nop"):
+#             runner += 1
+#         else:
+#             math = dataSet[runner][1][0]
+#             count = int(dataSet[runner][1][1:])
+#             if (dataSet[runner][0] == "acc"):
+#                 if (math == "+"):
+#                     acc += count
+#                     runner += 1
+#                 if (math == "-"):
+#                     acc -= count
+#                     runner += 1
+#             elif (dataSet[runner][0] == "jmp"):
+#                 if (math == "+"):
+#                     runner += count
+#                 if (math == "-"):
+#                     runner -= count
+#     return game(runner, acc, indexTracker)
+
+# game(runner, acc, indexTracker)
+
 def game(runner, acc, indexTracker):
-    if runner in indexTracker:
+    if (runner == len(dataSet)-1):
         print(acc)
-        return
+        quit()
+    elif runner in indexTracker:
+        return False
     else:
         indexTracker.append(runner)
         if (dataSet[runner][0] == "nop"):
             runner += 1
         else:
-            math = dataSet[runner][1][0]
-            count = int(dataSet[runner][1][1:])
+            math = int(dataSet[runner][1])
             if (dataSet[runner][0] == "acc"):
-                if (math == "+"):
-                    acc += count
-                    runner += 1
-                if (math == "-"):
-                    acc -= count
+                    acc += math
                     runner += 1
             elif (dataSet[runner][0] == "jmp"):
-                if (math == "+"):
-                    runner += count
-                if (math == "-"):
-                    runner -= count
+                    runner += math
     return game(runner, acc, indexTracker)
 
-game(runner, acc, indexTracker)
+def fixer(program):
+    index = 0
+    while (index < len(program)):
+        accumulator = 0
+        indexTracker = []
+        runner = 0
+        if program[index][0] == "acc":
+            index+=1
+            continue
+        else:
+            if program[index][0] == "nop":
+                program[index][0] = "jmp"
+            elif program[index][0] == "jmp":
+                program[index][0] = "nop"
+            
+            if (game(runner, accumulator, indexTracker) == False):
+                if program[index][0] == "nop":
+                    program[index][0] = "jmp"
+                elif program[index][0] == "jmp":
+                    program[index][0] = "nop"
+            else:
+                quit()
+        index += 1
+
+fixer(dataSet)
