@@ -1,0 +1,13 @@
+Part 1:
+    Part 1 was rather straightforward. Find the total number of 1 differences and 3 differences and multiply them together.
+    I sorted the data and then iterated through the data subtracting the previous number from the present to determing the difference. If the difference was 1, I increased the count, and the same when the difference was three.
+    Additionally, for the very first value, since I was unsure if it would be 1 or 3, I set an if statement to increase that count with whichever the first value was.
+    Finally, because our device is always 3 jolts more than the greatest adapter, the 3 count automatically started at 1.
+    Using this method, I returned a value of 3034, which was correct.
+
+Part 2:
+    Part 2 was very difficult and I did seek outside advice in figuring it out as I couldn't shape my idea in a timely manner.
+    Essentially, the idea was to break it down into manageable pieces and work upwards. I knew that each adapter only had a maximum potential of 3 possible jumps in voltage.
+    So I created a dictionary of voltage values. For each adapter, I would check each potential step, and if it existed, I would add the potential paths value from the original to the steps value. Doing this would ultimately add up to the final paths value when I called on the dictionary with the max value from the original data set.
+    Using this method, I returned a value of 259172170858496, which was the correct answer.
+    (Which, side note, was an incredible amount for me! I didn't think it could get that high! Thats: 259 trillion, 172 billion, 170 million, 858 thousand, 496. Amazing!)
